@@ -37,3 +37,13 @@ CREATE TABLE `empresa_petro`.`clientes` (
   PRIMARY KEY (`ID_clientes`),
   UNIQUE INDEX `ID_clientes_UNIQUE` (`ID_clientes` ASC) VISIBLE,
   UNIQUE INDEX `CUIT_UNIQUE` (`CUIT` ASC) VISIBLE);
+  
+  ALTER TABLE `empresa_petro`.`clientes` 
+CHANGE COLUMN `ID_clientes` `ID_clientes` INT NOT NULL AUTO_INCREMENT ;
+
+CREATE TABLE `empresa_petro`.`articulos` (
+  `ID_articulo` INT NOT NULL AUTO_INCREMENT,
+  `descripcion` VARCHAR(30) NULL,
+  `precio_compra` DECIMAL(5,2) NOT NULL,
+  `precio_venta` DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (`ID_articulo`));
