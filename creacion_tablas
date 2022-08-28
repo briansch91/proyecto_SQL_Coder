@@ -1,0 +1,39 @@
+CREATE TABLE `empresa_petro`.`proveedor_combustible` (
+  `ID_proveedor` INT NOT NULL,
+  `CUIT` VARCHAR(20) NOT NULL,
+  `razon_social` VARCHAR(40) NULL,
+  `domicilio_calle` VARCHAR(40) NULL,
+  `ciudad` VARCHAR(30) NULL,
+  `provincia` VARCHAR(30) NULL,
+  `codigo_postal` VARCHAR(10) NULL,
+  PRIMARY KEY (`ID_proveedor`),
+  UNIQUE INDEX `ID_proveedor_UNIQUE` (`ID_proveedor` ASC) VISIBLE,
+  UNIQUE INDEX `CUIT_UNIQUE` (`CUIT` ASC) VISIBLE);
+
+CREATE TABLE `empresa_petro`.`empresa` (
+  `ID_empresa` INT NOT NULL,
+  `CUIT` VARCHAR(20) NOT NULL,
+  `razon_social` VARCHAR(40) NULL,
+  `domicilio_calle` VARCHAR(40) NULL,
+  `ciudad` VARCHAR(30) NULL,
+  `provincia` VARCHAR(30) NULL,
+  `codigo_postal` VARCHAR(10) NULL,
+  PRIMARY KEY (`ID_empresa`),
+  UNIQUE INDEX `ID_empresa_UNIQUE` (`ID_proveedor` ASC) VISIBLE,
+  UNIQUE INDEX `CUIT_UNIQUE` (`CUIT` ASC) VISIBLE);
+  
+CREATE TABLE `empresa_petro`.`clientes` (
+  `ID_clientes` INT NOT NULL,
+  `CUIT` VARCHAR(15) NOT NULL,
+  `razon_social` VARCHAR(40) NULL,
+  `domicilio_calle_shipto` VARCHAR(40) NULL,
+  `ciudad_shipto` VARCHAR(30) NULL,
+  `provincia_shipto` VARCHAR(15) NULL,
+  `codigo_postal_shipto` VARCHAR(10) NULL,
+  `domicilio_calle_billto` VARCHAR(40) NULL,
+  `ciudad_billto` VARCHAR(30) NULL,
+  `provincia_billto` VARCHAR(15) NULL,
+  `codigo_postal_billto` VARCHAR(10) NULL,
+  PRIMARY KEY (`ID_clientes`),
+  UNIQUE INDEX `ID_clientes_UNIQUE` (`ID_clientes` ASC) VISIBLE,
+  UNIQUE INDEX `CUIT_UNIQUE` (`CUIT` ASC) VISIBLE);
