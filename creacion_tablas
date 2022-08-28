@@ -47,3 +47,17 @@ CREATE TABLE `empresa_petro`.`articulos` (
   `precio_compra` DECIMAL(5,2) NOT NULL,
   `precio_venta` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`ID_articulo`));
+
+CREATE TABLE `empresa_petro`.`compras` (
+  `ID_compras` INT NOT NULL AUTO_INCREMENT,
+  `cantidad` INT NOT NULL,
+  `fecha_compra` DATE NOT NULL,
+  `ID_articulo` INT NOT NULL,
+  PRIMARY KEY (`ID_compras`),
+  UNIQUE INDEX `ID_compras_UNIQUE` (`ID_compras` ASC) VISIBLE,
+  INDEX `ID_articulo_idx` (`ID_articulo` ASC) VISIBLE,
+  CONSTRAINT `ID_articulo`
+    FOREIGN KEY (`ID_articulo`)
+    REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
