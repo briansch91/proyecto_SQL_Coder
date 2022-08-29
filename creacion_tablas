@@ -61,3 +61,32 @@ CREATE TABLE `empresa_petro`.`compras` (
     REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+CREATE TABLE `empresa_petro`.`ventas` (
+  `ID_venta` INT NOT NULL AUTO_INCREMENT,
+  `ID_articulo` INT NOT NULL,
+  `cantidad` INT NULL,
+  `fecha_venta` DATE NULL,
+  PRIMARY KEY (`ID_venta`),
+  INDEX `ID_articulo_venta_idx` (`ID_articulo` ASC) VISIBLE,
+  CONSTRAINT `ID_articulo_venta`
+    FOREIGN KEY (`ID_articulo`)
+    REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+    CREATE TABLE `empresa_petro`.`realizan_compras` (
+  `ID_cliente` INT NOT NULL,
+  `ID_venta` INT NOT NULL,
+  INDEX `ID_cliente_idx` (`ID_cliente` ASC) VISIBLE,
+  INDEX `ID_venta_idx` (`ID_venta` ASC) VISIBLE,
+  CONSTRAINT `ID_cliente_venta`
+    FOREIGN KEY (`ID_cliente`)
+    REFERENCES `empresa_petro`.`clientes` (`ID_clientes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `ID_venta`
+    FOREIGN KEY (`ID_venta`)
+    REFERENCES `empresa_petro`.`ventas` (`ID_venta`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
