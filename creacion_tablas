@@ -90,3 +90,35 @@ CREATE TABLE `empresa_petro`.`ventas` (
     REFERENCES `empresa_petro`.`ventas` (`ID_venta`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+    CREATE TABLE `empresa_petro`.`compra_compuesta_de` (
+  `ID_compra` INT NOT NULL,
+  `ID_articulo` INT NOT NULL,
+  INDEX `ID_compra_idx` (`ID_compra` ASC) VISIBLE,
+  INDEX `ID_articulo_compra_idx` (`ID_articulo` ASC) VISIBLE,
+  CONSTRAINT `ID_compra`
+    FOREIGN KEY (`ID_compra`)
+    REFERENCES `empresa_petro`.`compras` (`ID_compras`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `ID_articulo_compra`
+    FOREIGN KEY (`ID_articulo`)
+    REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+    CREATE TABLE `empresa_petro`.`venta_compuesta_de` (
+  `ID_venta` INT NOT NULL,
+  `ID_articulo` INT NOT NULL,
+  INDEX `ID_venta_venta_idx` (`ID_venta` ASC) VISIBLE,
+  INDEX `ID_articulo_venta_idx` (`ID_articulo` ASC) VISIBLE,
+  CONSTRAINT `ID_venta_venta`
+    FOREIGN KEY (`ID_venta`)
+    REFERENCES `empresa_petro`.`ventas` (`ID_venta`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `ID_articulo_ventas`
+    FOREIGN KEY (`ID_articulo`)
+    REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
