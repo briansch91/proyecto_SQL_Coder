@@ -21,7 +21,7 @@ CREATE TABLE `empresa_petro`.`empresa` (
   `provincia` VARCHAR(30) NULL,
   `codigo_postal` VARCHAR(10) NULL,
   PRIMARY KEY (`ID_empresa`),
-  UNIQUE INDEX `ID_empresa_UNIQUE` (`ID_proveedor` ASC) VISIBLE,
+  UNIQUE INDEX `ID_empresa_UNIQUE` (`ID_empresa` ASC) VISIBLE,
   UNIQUE INDEX `CUIT_UNIQUE` (`CUIT` ASC) VISIBLE);
   
 CREATE TABLE `empresa_petro`.`clientes` (
