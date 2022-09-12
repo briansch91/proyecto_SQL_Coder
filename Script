@@ -124,4 +124,10 @@ CREATE TABLE `empresa_petro`.`ventas` (
     REFERENCES `empresa_petro`.`articulos` (`ID_articulo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+    ALTER TABLE `empresa_petro`.`ventas` 
+    DROP FOREIGN KEY `ID_articulo_venta`;
+    ALTER TABLE `empresa_petro`.`ventas` 
+    DROP INDEX `ID_articulo_venta_idx` ;
+
 
